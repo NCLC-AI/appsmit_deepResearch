@@ -1,0 +1,36 @@
+{
+  "gitSyncId": "67e57b0da70f3864fdb26124_db3b99b2-5bfa-4dc8-8078-4b9c76566784",
+  "id": "ChatPage_supabaseWs",
+  "unpublishedCollection": {
+    "name": "supabaseWs",
+    "pageId": "ChatPage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "socket",
+        "value": "undefined"
+      },
+      {
+        "name": "manuallyClosed",
+        "value": "false"
+      },
+      {
+        "name": "rowId",
+        "value": "''"
+      },
+      {
+        "name": "pollInterval",
+        "value": "30000"
+      },
+      {
+        "name": "pollingTimer",
+        "value": "null"
+      },
+      {
+        "name": "supabaseClient",
+        "value": "undefined"
+      }
+    ]
+  }
+}

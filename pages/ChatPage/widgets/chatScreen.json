@@ -1,0 +1,65 @@
+{
+  "backgroundColor": "#18181b",
+  "borderColor": "#d4d4d8",
+  "borderRadius": "0.375rem",
+  "borderWidth": "1",
+  "bottomRow": 88,
+  "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+  "defaultModel": "{{\n\t{\n\t\thistory: chat.history\n\t}\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onResetClick"
+    }
+  ],
+  "events": [
+    "onResetClick"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "uqpke769xx",
+  "leftColumn": 14,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 43,
+  "mobileLeftColumn": 19,
+  "mobileRightColumn": 42,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "originalBottomRow": 87,
+  "originalTopRow": 15,
+  "parentColumnSpace": 20.21875,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 54,
+  "shouldScrollContents": true,
+  "srcDoc": {
+    "css": "@charset \"UTF-8\";\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f4f4f4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.chat-container {\n  width: 90%;\n  max-width: 700px;\n  height: 90vh;\n  max-height: 800px;\n  background: #fff;\n  border-radius: 10px;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n}\n\n.chat-box {\n  flex-grow: 1;\n  overflow-y: auto;\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n}\n\n.chat-message {\n  max-width: 80%;\n  padding: 10px;\n  margin: 5px;\n  border-radius: 10px;\n  font-size: 14px;\n  word-wrap: break-word;\n}\n\n/* HTML 및 Markdown 테이블 스타일 추가 */\n.chat-message table {\n  width: 100%;\n  border-collapse: collapse;\n  margin-top: 5px;\n}\n\n.chat-message th, .chat-message td {\n  border: 1px solid #ccc;\n  padding: 5px;\n  text-align: left;\n}\n\n.chat-message th {\n  background: #f2f2f2;\n}\n\n/* 채팅 말풍선 스타일 */\n.ai {\n  background: #e0e0e0;\n  align-self: flex-start;\n  line-height: 1.6;\n}\n\n.user {\n  background: #007bff;\n  color: white;\n  align-self: flex-end;\n  line-height: 1.6;\n}\n\n/* 링크 스타일 */\na {\n  color: #007bff;\n  text-decoration: none;\n}\n\na:hover {\n  text-decoration: underline;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Chat UI</title>\n    <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n    <div class=\"chat-container\">\n        <div class=\"chat-box\" id=\"chat-box\">\n            <!-- 외부에서 채팅 데이터가 공급되면 이곳에 추가됨 -->\n        </div>\n    </div>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/marked/9.0.2/marked.min.js\"></script>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n",
+    "js": "/**\n * Initializes the app by setting up the onModelChange event listener.\n * It ensures the messages update whenever the model changes.\n */\nappsmith.onReady(() => {\n  // Listen for changes in the model and update the messages when the model changes\n  appsmith.onModelChange(() => {\n    updateMessages();\n  });\n});\nfunction clearChat() {\n  $(\"#chat-box\").empty(); // chat-box 내부 모든 메시지 삭제\n}\nfunction updateMessages() {\n  // console.log(\"Chat UI Ready\");\n  clearChat();\n  appsmith.model.history.forEach(item => addChatMessage(item.prompt, item.role));\n  // const itemCount = appsmith.model.history.length;\n  // const item = appsmith.model.history[itemCount - 1];\n  // addChatMessage(item.prompt, item.role)\n}\n;\n\n// HTML 또는 Markdown을 렌더링하여 채팅 메시지로 추가하는 함수\nfunction addChatMessage(text, type) {\n  let messageClass = type === \"user\" ? \"user\" : \"ai\";\n\n  // HTML 또는 Markdown 변환 처리\n  let formattedText;\n  if (text.startsWith(\"```html\")) {\n    // HTML 코드 블록 처리\n    formattedText = text.replace(/^```html\\s*/, \"\").replace(/```$/, \"\");\n  } else if (text.startsWith(\"```markdown\")) {\n    // Markdown 코드 블록 처리\n    formattedText = marked.parse(text.replace(/^```markdown\\s*/, \"\").replace(/```$/, \"\"));\n  } else {\n    // 일반 텍스트로 처리 (Markdown 지원)\n    formattedText = marked.parse(text);\n  }\n\n  // 메시지를 채팅 창에 추가\n  $(\"#chat-box\").append(`<div class=\"chat-message ${messageClass}\">${formattedText}</div>`);\n  $(\"#chat-box\").scrollTop($(\"#chat-box\")[0].scrollHeight);\n}"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 15,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "body {\n    font-family: Arial, sans-serif;\n    background-color: #f4f4f4;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n    margin: 0;\n}\n\n.chat-container {\n    width: 90%;\n    max-width: 700px;\n    height: 90vh;\n    max-height: 800px;\n    background: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n    overflow: hidden;\n    display: flex;\n    flex-direction: column;\n}\n\n.chat-box {\n    flex-grow: 1;\n    overflow-y: auto;\n    padding: 10px;\n    display: flex;\n    flex-direction: column;\n}\n\n.chat-message {\n    max-width: 80%;\n    padding: 10px;\n    margin: 5px;\n    border-radius: 10px;\n    font-size: 14px;\n    word-wrap: break-word;\n}\n\n/* HTML 및 Markdown 테이블 스타일 추가 */\n.chat-message table {\n    width: 100%;\n    border-collapse: collapse;\n    margin-top: 5px;\n}\n\n.chat-message th, .chat-message td {\n    border: 1px solid #ccc;\n    padding: 5px;\n    text-align: left;\n}\n\n.chat-message th {\n    background: #f2f2f2;\n}\n\n/* 채팅 말풍선 스타일 */\n.ai {\n    background: #e0e0e0;\n    align-self: flex-start;\n    line-height: 1.6;\n}\n\n.user {\n    background: #007bff;\n    color: white;\n    align-self: flex-end;\n    line-height: 1.6;\n}\n\n/* 링크 스타일 */\na {\n    color: #007bff;\n    text-decoration: none;\n}\n\na:hover {\n    text-decoration: underline;\n}\n",
+    "html": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Chat UI</title>\n    <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n    <div class=\"chat-container\">\n        <div class=\"chat-box\" id=\"chat-box\">\n            <!-- 외부에서 채팅 데이터가 공급되면 이곳에 추가됨 -->\n        </div>\n    </div>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/marked/9.0.2/marked.min.js\"></script>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n",
+    "js": "/**\n * Initializes the app by setting up the onModelChange event listener.\n * It ensures the messages update whenever the model changes.\n */\nappsmith.onReady(() => {\n\t// Listen for changes in the model and update the messages when the model changes\n\tappsmith.onModelChange(() => {\n\t\tupdateMessages();\n\t});\n});\n\nfunction clearChat() {\n\t$(\"#chat-box\").empty(); // chat-box 내부 모든 메시지 삭제\n}\n\nfunction updateMessages() {\n    // console.log(\"Chat UI Ready\");\n\t\tclearChat();\n\t\tappsmith.model.history.forEach((item) => addChatMessage(item.prompt, item.role));\n\t\t// const itemCount = appsmith.model.history.length;\n\t\t// const item = appsmith.model.history[itemCount - 1];\n\t\t// addChatMessage(item.prompt, item.role)\n};\n\n// HTML 또는 Markdown을 렌더링하여 채팅 메시지로 추가하는 함수\nfunction addChatMessage(text, type) {\n\tlet messageClass = type === \"user\" ? \"user\" : \"ai\";\n\n\t// HTML 또는 Markdown 변환 처리\n\tlet formattedText;\n\tif (text.startsWith(\"```html\")) {\n\t\t// HTML 코드 블록 처리\n\t\tformattedText = text.replace(/^```html\\s*/, \"\").replace(/```$/, \"\");\n\t} else if (text.startsWith(\"```markdown\")) {\n\t\t// Markdown 코드 블록 처리\n\t\tformattedText = marked.parse(text.replace(/^```markdown\\s*/, \"\").replace(/```$/, \"\"));\n\t} else {\n\t\t// 일반 텍스트로 처리 (Markdown 지원)\n\t\tformattedText = marked.parse(text);\n\t}\n\n\t// 메시지를 채팅 창에 추가\n\t$(\"#chat-box\").append(`<div class=\"chat-message ${messageClass}\">${formattedText}</div>`);\n\t$(\"#chat-box\").scrollTop($(\"#chat-box\")[0].scrollHeight);\n}"
+  },
+  "version": 1,
+  "widgetId": "gx2c9tcj3w",
+  "widgetName": "chatScreen"
+}

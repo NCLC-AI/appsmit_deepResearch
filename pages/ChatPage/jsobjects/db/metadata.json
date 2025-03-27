@@ -1,0 +1,24 @@
+{
+  "gitSyncId": "67e57b0da70f3864fdb26124_8362ea82-797e-43a4-a716-70ea08062627",
+  "id": "ChatPage_db",
+  "unpublishedCollection": {
+    "name": "db",
+    "pageId": "ChatPage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "researchDBTable",
+        "value": "'deepResearch'"
+      },
+      {
+        "name": "supabaseUrl",
+        "value": "'YOUR_SUPABASE_PROJECT_URL'"
+      },
+      {
+        "name": "supabaseKey",
+        "value": "'YOUR_SUPABASE_ANON_KEY'"
+      }
+    ]
+  }
+}

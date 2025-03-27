@@ -1,0 +1,60 @@
+{
+  "gitSyncId": "67e57b0da70f3864fdb26124_a5715c22-be95-417f-9dd6-1418767bc610",
+  "id": "ChatPage_chat",
+  "unpublishedCollection": {
+    "name": "chat",
+    "pageId": "ChatPage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "appname",
+        "value": "'ai-chat'"
+      },
+      {
+        "name": "history",
+        "value": "[]"
+      },
+      {
+        "name": "openAIapiKey",
+        "value": "''"
+      },
+      {
+        "name": "firecrawlApiKey",
+        "value": "''"
+      },
+      {
+        "name": "serpApiKey",
+        "value": "''"
+      },
+      {
+        "name": "state",
+        "value": "'AI'"
+      },
+      {
+        "name": "deepResearch",
+        "value": "false"
+      },
+      {
+        "name": "ansLang",
+        "value": "'English'"
+      },
+      {
+        "name": "maxSearch",
+        "value": "-1"
+      },
+      {
+        "name": "breadth",
+        "value": "-1"
+      },
+      {
+        "name": "depth",
+        "value": "-1"
+      },
+      {
+        "name": "isDeepResearchValid",
+        "value": "false"
+      }
+    ]
+  }
+}

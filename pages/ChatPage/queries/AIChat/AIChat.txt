@@ -1,0 +1,13 @@
+{{
+	{
+		"openAIapiKey": chat.openAIapiKey,
+		"firecrawlApiKey": chat.firecrawlApiKey,
+		"serpApiKey": chat.serpApiKey,
+		"state": this.params.state,
+		"history": this.params.history,
+		"lang": chat.ansLang,
+		"maxSearchQuery": chat.maxSearch,
+		"breadth": chat.breadth,
+		"depth": chat.depth,
+	}
+}}

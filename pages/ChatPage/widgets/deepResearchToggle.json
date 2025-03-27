@@ -1,0 +1,48 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 99,
+  "boxShadow": "none",
+  "defaultSwitchState": true,
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [
+    {
+      "key": "onChange"
+    }
+  ],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "r514865ghs",
+  "label": "DeepResearch",
+  "labelPosition": "Left",
+  "labelStyle": "BOLD,ITALIC",
+  "leftColumn": 47,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 75,
+  "mobileLeftColumn": 42,
+  "mobileRightColumn": 54,
+  "mobileTopRow": 71,
+  "needsErrorInfo": false,
+  "onChange": "{{chat.setDeepResearch(deepResearchToggle.isSwitchedOn);}}",
+  "originalBottomRow": 98,
+  "originalTopRow": 94,
+  "parentColumnSpace": 20.21875,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "topRow": 95,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "iqa28osejo",
+  "widgetName": "deepResearchToggle"
+}

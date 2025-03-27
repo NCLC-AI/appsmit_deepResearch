@@ -1,0 +1,28 @@
+{
+  "gitSyncId": "67e57b0da70f3864fdb26124_ee7ded84-41d6-4fc7-b56e-3a3007f773a2",
+  "id": "ChatPage_researchingAnimation",
+  "unpublishedCollection": {
+    "name": "researchingAnimation",
+    "pageId": "ChatPage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "index",
+        "value": "0"
+      },
+      {
+        "name": "messages",
+        "value": "[\"researching\", \"researching.\", \"researching..\", \"researching...\"]"
+      },
+      {
+        "name": "isAnimating",
+        "value": "false"
+      },
+      {
+        "name": "text",
+        "value": "\"\""
+      }
+    ]
+  }
+}
